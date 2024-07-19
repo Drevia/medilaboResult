@@ -25,10 +25,10 @@ public class MedilaboResultService {
     @Autowired
     private MedilaboNoteClient noteClient;
 
-    private final String NO_RISK = "None";
-    private final String BORDERLINE = "Borderline";
-    private final String DANGER = "InDanger";
-    private final String EARLY_ONSET = "EarlyOnset";
+    private static final String NO_RISK = "None";
+    private static final String BORDERLINE = "Borderline";
+    private static final String DANGER = "InDanger";
+    private static final String EARLY_ONSET = "EarlyOnset";
 
     public String calculateRisk(String patientId){
         List<PatientNote> patientNoteList = noteClient.findAllPatientNoteByPatientId(patientId);
