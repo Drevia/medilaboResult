@@ -6,6 +6,8 @@ import com.openclassrooms.medilaboResult.client.medilaboPatient.MedilaboPatientC
 import com.openclassrooms.medilaboResult.client.medilaboPatient.model.Gender;
 import com.openclassrooms.medilaboResult.client.medilaboPatient.model.Patient;
 import com.openclassrooms.medilaboResult.model.RiskWordEnum;
+import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -17,14 +19,16 @@ import java.util.List;
 @Service
 public class MedilaboResultService {
 
+    @Autowired
     private MedilaboPatientClient patientClient;
 
+    @Autowired
     private MedilaboNoteClient noteClient;
 
     private final String NO_RISK = "None";
     private final String BORDERLINE = "Borderline";
-    private final String DANGER = "In Danger";
-    private final String EARLY_ONSET = "Early onset";
+    private final String DANGER = "InDanger";
+    private final String EARLY_ONSET = "EarlyOnset";
 
     public String calculateRisk(String patientId){
         List<PatientNote> patientNoteList = noteClient.findAllPatientNoteByPatientId(patientId);
@@ -40,7 +44,7 @@ public class MedilaboResultService {
         for (PatientNote patientNote : patientNoteList) {
 
             for (RiskWordEnum riskWordEnum : RiskWordEnum.values()){
-                if(patientNote.getNote().contains(riskWordEnum.getValue())){
+                if(StringUtils.containsIgnoreCase(patientNote.getNote(), riskWordEnum.getValue())){
                     riskWordCount++;
                 }
             }
