@@ -47,12 +47,16 @@ class MedilaboResultServiceTest {
     private static Stream<Arguments> testMedilaboResult(){
         return Stream.of(Arguments.of(PatientTestUtils.buildPatientNotesNone(),
                 PatientTestUtils.buildPatientMaleMoreThan30Years(), "None"),
-                Arguments.of(PatientTestUtils.buildPatientNotesBorderline(),
+                Arguments.of(PatientTestUtils.buildPatientNotesFourKeyword(),
                         PatientTestUtils.buildPatientMaleMoreThan30Years(), "Borderline"),
-                Arguments.of(PatientTestUtils.buildPatientNotesInDanger(),
+                Arguments.of(PatientTestUtils.buildPatientNotesSixKeyword(),
                         PatientTestUtils.buildPatientMaleMoreThan30Years(), "InDanger"),
-                Arguments.of(PatientTestUtils.buildPatientNotesEarlyOnSet(),
-                        PatientTestUtils.buildPatientMaleMoreThan30Years(), "EarlyOnset"));
+                Arguments.of(PatientTestUtils.buildPatientNotesEightKeyword(),
+                        PatientTestUtils.buildPatientMaleMoreThan30Years(), "EarlyOnset"),
+                Arguments.of(List.of(new PatientNote()),
+                        PatientTestUtils.buildPatientMaleMoreThan30Years(), "None"),
+                Arguments.of(PatientTestUtils.buildPatientNotesFourKeyword(),
+                        PatientTestUtils.buildPatientFemaleLessThan30Years(), "InDanger"));
     }
 
 

@@ -21,7 +21,7 @@ public class PatientTestUtils {
 
     }
 
-    public static List<PatientNote> buildPatientNotesBorderline(){
+    public static List<PatientNote> buildPatientNotesFourKeyword(){
         PatientNote patientNote = new PatientNote();
         patientNote.setPatientId("1");
         patientNote.setPatientName("name");
@@ -31,7 +31,7 @@ public class PatientTestUtils {
 
     }
 
-    public static List<PatientNote> buildPatientNotesInDanger(){
+    public static List<PatientNote> buildPatientNotesSixKeyword(){
         PatientNote patientNote = new PatientNote();
         patientNote.setPatientId("1");
         patientNote.setPatientName("name");
@@ -41,7 +41,7 @@ public class PatientTestUtils {
 
     }
 
-    public static List<PatientNote> buildPatientNotesEarlyOnSet(){
+    public static List<PatientNote> buildPatientNotesEightKeyword(){
         PatientNote patientNote = new PatientNote();
         patientNote.setPatientId("1");
         patientNote.setPatientName("name");
