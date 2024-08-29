@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@FeignClient(url = "http://localhost:8091/api", name = "MedilaboPatient", configuration = FeignConfiguration.class)
+@FeignClient(url = "http://medilabo:8091/api", name = "MedilaboPatient", configuration = FeignConfiguration.class)
 public interface MedilaboPatientClient {
 
     @GetMapping("/patient")
